@@ -1,5 +1,8 @@
 const redux = require('redux')
 const createStore = redux.createStore
+// bind action creating step-01
+const bindActionCreator = redux.bindActionCreators
+// end of setp -01
 
 const ORDERED = "ORDERED"
 const RESTOCKED = "RESTOCKED"
@@ -51,6 +54,15 @@ store.dispatch(ordered())
 store.dispatch(ordered())
 store.dispatch(restocked(11))
 
+// bind action creator - step 02
+const action = bindActionCreator({ordered, restocked}, store.dispatch)
+action.ordered()
+action.ordered()
+action.ordered()
+action.ordered()
+action.restocked(11)
+// now we can remove the lines from 53-55
+// end of step 02
 
 
 
